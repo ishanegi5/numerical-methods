@@ -1,0 +1,18 @@
+i=0
+def x1(x_2=0,x_3=0,x_4=0):
+    x_1=(6+x_2-2*x_3)/10
+    return x2(x_1,x_3,x_4)
+def x2(x_1,x_3,x_4):
+    x_2=(25+x_3-3*x_4+x_1)/11
+    return x3(x_1,x_2,x_4)
+def x3(x_1,x_2,x_4):
+    x_3=(-11-2*x_1+x_2+x_4)/10
+    return x4(x_1,x_2,x_3)
+def x4(x_1,x_2,x_3):
+    global i
+    x_4=(15-3*x_2+x_3)/8
+    i+=1
+    if(i==5):
+        exit(print("x1={},\nx2={},\nx3={},\nx4={}".format(x_1,x_2,x_3,x_4)))
+    return x1(x_2,x_3,x_4)
+x1(0,0,0)
