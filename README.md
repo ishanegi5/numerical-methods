@@ -1,0 +1,2 @@
+# numerical-methods
+gauss seidel 
