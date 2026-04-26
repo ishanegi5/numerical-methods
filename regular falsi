@@ -1,0 +1,23 @@
+def f(x):
+    return x**3 - x - 2
+
+a = 1
+b = 2
+tolerance = 0.0001
+
+if f(a) * f(b) >= 0:
+    print("Invalid interval")
+else:
+    c = a
+    while True:
+        c = (a * f(b) - b * f(a)) / (f(b) - f(a))
+        
+        if abs(f(c)) < tolerance:
+            break
+        
+        if f(a) * f(c) < 0:
+            b = c
+        else:
+            a = c
+
+    print("Root is:", c)
