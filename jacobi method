@@ -1,27 +1,17 @@
-import numpy as np
+x1 = x2 = x3 = x4 = 0
 
-A = np.array([[10, -1, 2],
-              [-1, 11, -1],
-              [2, -1, 10]])
+for _ in range(5):  # number of iterations
+    new_x1 = (6 + x2 - 2*x3) / 10
+    new_x2 = (25 + x1 + x3 - 3*x4) / 11
+    new_x3 = (-11 - 2*x1 + x2 + x4) / 10
+    new_x4 = (15 - 3*x2 + x3) / 8
 
-B = np.array([6, 25, -11])
+    x1 = new_x1
+    x2 = new_x2
+    x3 = new_x3
+    x4 = new_x4
 
-x = np.zeros(len(B))
-tolerance = 0.0001
-
-while True:
-    x_new = np.zeros(len(B))
-    
-    for i in range(len(A)):
-        s = 0
-        for j in range(len(A)):
-            if i != j:
-                s += A[i][j] * x[j]
-        x_new[i] = (B[i] - s) / A[i][i]
-    
-    if np.allclose(x, x_new, atol=tolerance):
-        break
-    
-    x = x_new
-
-print("Solution:", x_new)
+print("x1 =", x1)
+print("x2 =", x2)
+print("x3 =", x3)
+print("x4 =", x4)
