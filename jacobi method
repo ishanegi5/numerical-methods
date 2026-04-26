@@ -1,0 +1,27 @@
+import numpy as np
+
+A = np.array([[10, -1, 2],
+              [-1, 11, -1],
+              [2, -1, 10]])
+
+B = np.array([6, 25, -11])
+
+x = np.zeros(len(B))
+tolerance = 0.0001
+
+while True:
+    x_new = np.zeros(len(B))
+    
+    for i in range(len(A)):
+        s = 0
+        for j in range(len(A)):
+            if i != j:
+                s += A[i][j] * x[j]
+        x_new[i] = (B[i] - s) / A[i][i]
+    
+    if np.allclose(x, x_new, atol=tolerance):
+        break
+    
+    x = x_new
+
+print("Solution:", x_new)
